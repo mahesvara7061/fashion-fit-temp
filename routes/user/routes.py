@@ -21,7 +21,7 @@ def register_user():
         data = request.get_json()
 
         # Kiểm tra các trường bắt buộc
-        required_fields = ["Username", "Password", "Email", "FullName", "Address", "DateOfBirth", "PhoneNumber"]
+        required_fields = ["Username", "Password", "Email", "FullName", "Province", "District", "Ward", "Address", "DateOfBirth", "PhoneNumber"]
         missing_fields = [field for field in required_fields if field not in data]
         if missing_fields:
             return jsonify({
@@ -49,6 +49,9 @@ def register_user():
             "Password": hashed_password,
             "Email": data["Email"],
             "FullName": data["FullName"],
+            "Province": data["Province"],
+            "District": data["District"],
+            "Ward": data["Ward"],
             "Address": data["Address"],
             "DateOfBirth": data["DateOfBirth"],
             "PhoneNumber": data["PhoneNumber"],
