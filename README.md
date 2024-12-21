@@ -84,6 +84,127 @@ This project is a Flask-based backend service designed to manage various functio
 
 ---
 
+## Database Schema
+
+### **Products Collection**
+```json
+{
+  "_id": { "$oid": "675d592c8a87539261f5aaeb" },
+  "ProductId": "004",
+  "ProductTitle": "Ant Kids Boys Multicoloured Striped T-shirts",
+  "Category": "Topwear",
+  "SubCategory": "Unknown",
+  "ProductType": "Tshirts",
+  "Gender": "Boys",
+  "Colour": "Multi",
+  "Usage": "Casual",
+  "Sizes": ["M", "L", "XL"],
+  "PriceUSD": 12.99,
+  "PriceVND": 311760,
+  "Stock": 151,
+  "Sales": 336,
+  "Image": "12844.jpg",
+  "ImageURL": "http://assets.myntassets.com/v1/images/style/properties/Ant-Kids-Boys-Grafitti-Brown-Tshirts_c909c04993ffbde8aa3ae77ab537a854_images.jpg",
+  "CreatedTime": "2024-10-01T09:04:00",
+  "UpdatedTime": "2024-10-01T09:04:00",
+  "Description_Paragraph": "Detailed description about the product.",
+  "Weight": 200
+}
+```
+
+### **Ratings Collection**
+```json
+{
+  "_id": { "$oid": "675eb1756cc122b33ad992a7" },
+  "ReviewId": "004",
+  "ProductId": "103",
+  "UserId": "004",
+  "Rating": 2,
+  "Review": "Poor quality, would not recommend.",
+  "CreatedTime": "2024-12-14T13:00:00+07:00"
+}
+```
+
+### **Users Collection**
+```json
+{
+  "_id": { "$oid": "6762720fc40a75456ce97e0f" },
+  "UserId": "005",
+  "Username": "tranquang",
+  "Password": "hashed_password5",
+  "Email": "tranquang@example.com",
+  "FullName": "Tran Quang",
+  "Province": "Can Tho",
+  "District": "Ninh Kieu",
+  "Ward": "An Lac",
+  "Address": "89 30 Thang 4 Street",
+  "DateOfBirth": "1988-11-11",
+  "PhoneNumber": "0967890123",
+  "CreatedTime": "2024-12-14T12:30:00",
+  "UpdatedTime": "2024-12-14T12:30:00"
+}
+```
+
+### **Orders Collection**
+```json
+{
+  "_id": { "$oid": "676277e6943e5985864bbc95" },
+  "orderId": "1734506468",
+  "userId": "001",
+  "items": [
+    {
+      "productId": "030",
+      "name": "Madagascar3 Boys Yellow Innerwear Vest",
+      "quantity": 2,
+      "priceUSD": 6.99,
+      "priceVND": 167760
+    },
+    {
+      "productId": "031",
+      "name": "Doodle Boys Grand Prix White Shirt",
+      "quantity": 1,
+      "priceUSD": 18.69,
+      "priceVND": 448560
+    }
+  ],
+  "feeShip": 0,
+  "totalVND": 784080,
+  "totalUSD": 32.67,
+  "status": "Cancelled",
+  "statusHistory": [
+    {"status": "Pending", "time": "2024-12-18T14:21:10.132Z"},
+    {"status": "Cancelled", "time": "2024-12-18T14:52:15.654Z"}
+  ],
+  "orderTime": "2024-12-18T14:21:10.132Z",
+  "orderLabel": "S22801838.SGP39-J18.1171083497"
+}
+```
+
+### **Coupons Collection**
+```json
+{
+  "_id": { "$oid": "675d5bde624549cf8adbda92" },
+  "couponId": "3",
+  "code": "DISCOUNT10PERCENT",
+  "expire_date": "2024-12-31T23:59:59.000Z",
+  "type": "discount_percentage",
+  "createdAt": "2024-12-14T14:29:05.141Z",
+  "discount": 10,
+  "max_discount": 50000,
+  "min_order_value": 200000,
+  "description": "10% discount for orders over 200k (max 50k)"
+}
+```
+
+---
+
+## Notes
+- Ensure all timestamps are in ISO 8601 format.
+- Maintain data consistency by validating inputs when interacting with APIs.
+- Test edge cases for `null`, missing fields, or invalid data types in collections.
+
+---
+
 ## Contact
 For further assistance or questions about the project, please contact the project maintainer.
 
